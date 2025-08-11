@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Builder</title>
+    <style>
+        /* Base Reset + Body */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background: #f0f4ff; /* pastel light sky */
+  margin: 0;
+  padding: 0;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background: #a3bffa; /* soft pastel blue */
+  color: #1e2a78;
+  font-weight: 700;
+  font-size: 2rem;
+  text-align: center;
+  padding: 1.6rem 1rem;
+  box-shadow: 0 5px 15px rgba(30, 42, 120, 0.3);
+  letter-spacing: 1.2px;
+  user-select: none;
+}
+
+/* Main container */
+main {
+  flex-grow: 1;
+  padding: 2rem 1.5rem;
+  max-width: 1100px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Section cards */
+.form-section,
+.preview-section {
+  background: white;
+  padding: 2rem 2.5rem;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(163, 191, 250, 0.25);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.form-section:hover,
+.preview-section:hover {
+  box-shadow: 0 12px 40px rgba(163, 191, 250, 0.4);
+  transform: translateY(-6px);
+}
+
+/* Section titles */
+.form-section h2,
+.preview-section h2 {
+  color: #5362ff;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+/* Labels & Inputs */
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #444;
+  margin-bottom: 0.3rem;
+  margin-top: 1.2rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #c3d0f8;
+  border-radius: 12px;
+  font-size: 1rem;
+  resize: vertical;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: inherit;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #5362ff;
+  box-shadow: 0 0 10px rgba(83, 98, 255, 0.6);
+  outline: none;
+}
+
+/* Button */
+button {
+  margin-top: 2rem;
+  padding: 14px 25px;
+  background: #5362ff;
+  border: none;
+  border-radius: 16px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.15rem;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(83, 98, 255, 0.6);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: #3d4ccf;
+  box-shadow: 0 9px 26px rgba(61, 76, 207, 0.75);
+  transform: translateY(-3px);
+}
+
+/* Unordered List inside preview */
+.preview-section ul {
+  margin: 0.8rem 0 0 1.5rem;
+  color: #5a5a5a;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Responsive layout for wider screens */
+@media (min-width: 900px) {
+  main {
+    flex-direction: row;
+  }
+  .form-section,
+  .preview-section {
+    flex: 1 1 48%;
+  }
+}
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1> Student Portfolio Builder</h1>
+</header>
+
+<main>
+    <!-- Form Section -->
+    <section class="form-section">
+        <h2>Create / Edit Your Profile</h2>
+        <form id="profileForm">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="Enter your name" required>
+
+            <label for="skills">Skills</label>
+            <input type="text" id="skills" placeholder="e.g., HTML, CSS, JavaScript" required>
+
+            <label for="github">GitHub Link</label>
+            <input type="url" id="github" placeholder="https://github.com/yourusername" required>
+
+            <label for="projects">Projects (comma separated)</label>
+            <input type="text" id="projects" placeholder="Project1, Project2" required>
+
+            <button type="submit">Save Profile</button>
+        </form>
+        <button id="showPreviewBtn">Show Preview</button>
+    </section>
+
+    <!-- Preview Section -->
+    <section class="preview-section" id="previewSection" style="display:none;">
+        <h2>Profile Preview</h2>
+        <h3 id="previewName">Your Name</h3>
+        <p><strong>Skills:</strong> <span id="previewSkills">-</span></p>
+        <p><strong>GitHub:</strong> <a id="previewGithub" href="#" target="_blank">-</a></p>
+        <p><strong>Projects:</strong></p>
+        <ul id="previewProjects"></ul>
+    </section>
+</main>
+
+<script>
+document.getElementById('profileForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('fullName').value;
+    const github = document.getElementById('github').value;
+    const skills = document.getElementById('skills').value;
+    const projects = document.getElementById('projects').value.split(',');
+
+    const profileData = { name, github, skills, projects };
+    localStorage.setItem('studentProfile', JSON.stringify(profileData));
+
+    alert('Profile saved successfully!');
+});
+
+document.getElementById('showPreviewBtn').addEventListener('click', function() {
+    const savedProfile = localStorage.getItem('studentProfile');
+    if (savedProfile) {
+        const { name, github, skills, projects } = JSON.parse(savedProfile);
+        document.getElementById('previewName').textContent = name;
+        document.getElementById('previewGithub').href = github;
+        document.getElementById('previewGithub').textContent = github;
+        document.getElementById('previewSkills').textContent = skills;
+
+        const projectsList = document.getElementById('previewProjects');
+        projectsList.innerHTML = "";
+        projects.forEach(project => {
+            const li = document.createElement('li');
+            li.textContent = project.trim();
+            projectsList.appendChild(li);
+        });
+
+        document.getElementById('previewSection').style.display = 'block';
+    } else {
+        alert('No profile found! Please save your profile first.');
+    }
+});
+</script>
+
+</body>
+</html>

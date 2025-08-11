@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Start Page</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <h1 style="font-size: 50px;">Task Management System</h1> <br> <br>
+  <!-- Start Screen -->
+  <div class="start-screen" id="startScreen">
+    <h1 style="font-size: 50px;">Welcome!</h1>
+    <button  class="start-btn" onclick="showAuthOptions()" style="font-size: 45px;" >Start</button>
+  </div>
+
+  <!-- Auth Buttons -->
+  <div class="auth-choice" id="authChoice">
+    <button class="auth-btn" onclick="alert('Signup clicked')"  style="font-size: 40px;" ><a href="./signup.html" target="_blank" style="text-decoration: none;">Sign Up</a></button>
+    <button class="auth-btn" onclick="alert('Login clicked')"  style="font-size: 40px;"><a href="./login.html" target="_blank" style="text-decoration: none;">Login</a></button>
+  </div>
+
+  <script>
+    function showAuthOptions() {
+      document.getElementById('startScreen').style.display = 'none';
+      document.getElementById('authChoice').style.display = 'flex';
+    }
+  </script>
+
+</body>
+</html>

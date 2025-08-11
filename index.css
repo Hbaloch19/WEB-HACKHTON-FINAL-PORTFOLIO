@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  body {
+    background: linear-gradient(135deg, #0d1b2a, #1b263b);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    animation: fadeInUp 1.2s ease-out;
+  }
+
+  #Auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: linear-gradient(135deg, #1b263b, #0f3460);
+  }
+
+  .authbox {
+    background-color: #26355e;
+    padding: 35px 30px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    animation: fadeInUp 1s ease-out;
+  }
+
+  .authbox h2 {
+    color: #00bcd4;
+    margin-bottom: 24px;
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .authbox input {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    border: 1px solid #3a506b;
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: #1e2a47;
+    color: #ffffff;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    box-sizing: border-box; /* ✅ Keeps input from overflowing */
+  }
+
+  .authbox input:focus {
+    border-color: #00bcd4;
+    background-color: #243b55;
+    outline: none;
+  }
+
+  .Authbtn {
+    width: 100%;
+    background-color: #00bcd4;
+    color: white;
+    padding: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .Authbtn:hover {
+    background-color: #0097a7;
+    transform: scale(1.03);
+  }
+
+  .googlebtn {
+    width: 100%;
+    padding: 14px;
+    background-color: #db4437;
+    color: white;
+    border: none;
+    font-weight: 600;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 12px;
+  }
+
+  .googlebtn:hover {
+    background-color: #c23321;
+    transform: scale(1.03);
+  }
+
+  .authbox p {
+    margin-top: 14px;
+    font-size: 14px;
+    color: #cccccc;
+  }
+
+  .authbox a {
+    color: #00bcd4;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .authbox a:hover {
+    color: #80deea;
+  }
+/* welcome page signup button , login button */
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0d1b2a, #1b263b);
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 40px;
+    }
+
+    .start-screen, .auth-choice {
+      animation: fadeInUp 1s ease;
+    }
+
+    .start-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .start-screen h1 {
+      margin-bottom: 20px;
+      font-size: 36px;
+      color: #00bcd4;
+      text-align: center;
+    }
+
+    .start-btn, .auth-btn {
+      background-color: #00bcd4;
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .start-btn:hover, .auth-btn:hover {
+      background-color: #0097a7;
+      transform: scale(1.05);
+    }
+
+    .auth-choice {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+   
+    @media (max-width: 400px) {
+      .start-screen h1 {
+        font-size: 34px; 
+        margin-bottom: 20px;
+        padding: 0 12px;
+      }
+
+      .start-btn, .auth-btn {
+        font-size: 22px; 
+        padding: 18px;
+        width: 95%;
+        max-width: 100%;
+      }
+
+      body {
+        padding: 20px;
+      }
+    }
