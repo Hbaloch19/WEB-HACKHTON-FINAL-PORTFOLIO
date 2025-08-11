@@ -5,146 +5,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Builder</title>
     <style>
-        /* Base Reset + Body */
-* {
-  box-sizing: border-box;
-}
+ /* Base Reset + Body */
+   * {
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: 'Poppins', Arial, sans-serif;
-  background: #f0f4ff; /* pastel light sky */
-  margin: 0;
-  padding: 0;
-  color: #333;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(135deg, #a8edea, #fed6e3); /* fresh pastel gradient */
+      margin: 0;
+      padding: 0;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-/* Header */
-header {
-  background: #a3bffa; /* soft pastel blue */
-  color: #1e2a78;
-  font-weight: 700;
-  font-size: 2rem;
-  text-align: center;
-  padding: 1.6rem 1rem;
-  box-shadow: 0 5px 15px rgba(30, 42, 120, 0.3);
-  letter-spacing: 1.2px;
-  user-select: none;
-}
+    header {
+      background: #764ba2; /* deep purple */
+      color: #f0e6ff;
+      font-weight: 700;
+      font-size: 1.6rem;
+      text-align: center;
+      padding: 1rem 1rem;
+      border-radius: 12px;
+      margin: 1rem 2rem 2rem 2rem;
+      box-shadow: 0 4px 20px rgba(50, 20, 90, 0.5);
+      letter-spacing: 1.1px;
+      user-select: none;
+    }
 
-/* Main container */
-main {
-  flex-grow: 1;
-  padding: 2rem 1.5rem;
-  max-width: 1100px;
-  margin: 2rem auto;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
+    main {
+      flex-grow: 1;
+      padding: 2rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto 3rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
 
-/* Section cards */
-.form-section,
-.preview-section {
-  background: white;
-  padding: 2rem 2.5rem;
-  border-radius: 18px;
-  box-shadow: 0 8px 25px rgba(163, 191, 250, 0.25);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
+    .form-section,
+    .preview-section {
+      background: rgba(255, 255, 255, 0.9); /* almost white translucent */
+      padding: 2rem 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(100, 100, 150, 0.2);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      backdrop-filter: blur(12px);
+      color: #333;
+    }
 
-.form-section:hover,
-.preview-section:hover {
-  box-shadow: 0 12px 40px rgba(163, 191, 250, 0.4);
-  transform: translateY(-6px);
-}
+    .form-section:hover,
+    .preview-section:hover {
+      box-shadow: 0 15px 45px rgba(100, 100, 150, 0.4);
+      transform: translateY(-6px);
+    }
 
-/* Section titles */
-.form-section h2,
-.preview-section h2 {
-  color: #5362ff;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
-}
+    .form-section h2,
+    .preview-section h2 {
+      color: #5e3c8f;
+      font-weight: 700;
+      margin-bottom: 1.8rem;
+      font-size: 2rem;
+    }
 
-/* Labels & Inputs */
-label {
-  display: block;
-  font-weight: 600;
-  font-size: 1.05rem;
-  color: #444;
-  margin-bottom: 0.3rem;
-  margin-top: 1.2rem;
-}
+    label {
+      display: block;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #5a4d7a;
+      margin-bottom: 0.4rem;
+      margin-top: 1.4rem;
+    }
 
-input,
-textarea {
-  width: 100%;
-  padding: 12px 14px;
-  border: 2px solid #c3d0f8;
-  border-radius: 12px;
-  font-size: 1rem;
-  resize: vertical;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  font-family: inherit;
-}
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: none;
+      border-radius: 14px;
+      font-size: 1.05rem;
+      resize: vertical;
+      font-family: inherit;
+      background: #f5f3ff;
+      color: #3b2f5c;
+      box-shadow: inset 0 2px 8px rgba(150, 130, 220, 0.3);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
 
-input:focus,
-textarea:focus {
-  border-color: #5362ff;
-  box-shadow: 0 0 10px rgba(83, 98, 255, 0.6);
-  outline: none;
-}
+    input::placeholder,
+    textarea::placeholder {
+      color: #a99ff7;
+      font-style: italic;
+    }
 
-/* Button */
-button {
-  margin-top: 2rem;
-  padding: 14px 25px;
-  background: #5362ff;
-  border: none;
-  border-radius: 16px;
-  color: white;
-  font-weight: 700;
-  font-size: 1.15rem;
-  cursor: pointer;
-  box-shadow: 0 6px 18px rgba(83, 98, 255, 0.6);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-}
+    input:focus,
+    textarea:focus {
+      background-color: #e2defd;
+      box-shadow: 0 0 12px #a99ff7, inset 0 0 10px #a99ff7;
+      outline: none;
+      color: #2f244f;
+    }
 
-button:hover {
-  background: #3d4ccf;
-  box-shadow: 0 9px 26px rgba(61, 76, 207, 0.75);
-  transform: translateY(-3px);
-}
+    button {
+      margin-top: 2.5rem;
+      padding: 15px 30px;
+      background: #764ba2;
+      border: none;
+      border-radius: 28px;
+      color: #f0e6ff;
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(118, 75, 162, 0.7);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease,
+        transform 0.2s ease;
+    }
 
-/* Unordered List inside preview */
-.preview-section ul {
-  margin: 0.8rem 0 0 1.5rem;
-  color: #5a5a5a;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
+    button:hover {
+      background: #5e3c8f;
+      box-shadow: 0 12px 38px rgba(94, 60, 143, 0.9);
+      transform: translateY(-4px);
+      color: #e6e1ff;
+    }
 
-/* Responsive layout for wider screens */
-@media (min-width: 900px) {
-  main {
-    flex-direction: row;
-  }
-  .form-section,
-  .preview-section {
-    flex: 1 1 48%;
-  }
-}
+    .preview-section ul {
+      margin: 0.8rem 0 0 1.8rem;
+      color: #4b3a75;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      list-style-type: square;
+    }
+
+    @media (min-width: 900px) {
+      main {
+        flex-direction: row;
+      }
+      .form-section,
+      .preview-section {
+        flex: 1 1 48%;
+      }
+    }
 
     </style>
 </head>
 <body>
 
 <header>
-    <h1> Student Portfolio Builder</h1>
+    <h1> Student Portfolio </h1>
 </header>
 
 <main>
