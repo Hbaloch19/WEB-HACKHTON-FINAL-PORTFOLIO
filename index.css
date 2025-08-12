@@ -209,14 +209,14 @@ body {
 /* Responsive tweak for very small screens */
 @media (max-width: 400px) {
   .start-screen h1 {
-    font-size: 28px;
-    margin-bottom: 24px;
+    font-size: 40px;
+    margin-bottom: 30px;
   }
 
   .start-btn,
   .auth-btn {
-    font-size: 20px;
-    padding: 18px;
+    font-size: 40px;
+    padding: 30px;
   }
 }
 
