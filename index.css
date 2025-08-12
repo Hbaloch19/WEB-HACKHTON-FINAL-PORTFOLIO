@@ -123,7 +123,7 @@
     color: #80deea;
   }
 /* welcome page signup button , login button */
-/* welcome page signup button , login button */
+/* Reset and basic setup */
 * {
   margin: 0;
   padding: 0;
@@ -134,61 +134,67 @@ body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #0d1b2a, #1b263b);
   color: white;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 40px;
+  padding: 20px;
   text-align: center;
 }
 
-.start-screen, .auth-choice {
-  animation: fadeInUp 1s ease;
-}
-
-.start-screen {
+/* Screens */
+.start-screen,
+.auth-choice {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  max-width: 500px;
+  animation: fadeInUp 1s ease;
 }
 
+/* Heading */
 .start-screen h1 {
-  margin-bottom: 20px;
-  font-size: 36px;
+  margin-bottom: 30px;
+  font-size: 34px;
   color: #00bcd4;
-  text-align: center;
-  font-weight: 700;
-  text-shadow: 0 2px 6px rgba(0, 188, 212, 0.7);
+  text-shadow: 0 2px 6px rgba(0, 188, 212, 0.5);
+  font-weight: bold;
 }
 
-.start-btn, .auth-btn {
+/* Buttons */
+.start-btn,
+.auth-btn {
   background-color: #00bcd4;
   color: white;
   border: none;
-  padding: 14px 24px;
-  font-size: 18px;
-  border-radius: 10px;
+  padding: 20px;
+  font-size: 22px;
+  font-weight: 600;
+  border-radius: 14px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 10px;
-  min-width: 180px;
-  box-shadow: 0 4px 8px rgba(0, 188, 212, 0.4);
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 12px rgba(0, 188, 212, 0.4);
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.start-btn:hover, .auth-btn:hover {
+/* Hover effect */
+.start-btn:hover,
+.auth-btn:hover {
   background-color: #0097a7;
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
+/* Hide auth-choice by default */
 .auth-choice {
   display: none;
-  flex-direction: column;
-  align-items: center;
   gap: 20px;
 }
 
+/* Animation */
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -200,24 +206,17 @@ body {
   }
 }
 
-/* Mobile Responsive */
+/* Responsive tweak for very small screens */
 @media (max-width: 400px) {
-  body {
-    padding: 20px;
-  }
-
   .start-screen h1 {
     font-size: 28px;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
   }
 
-  .start-btn, .auth-btn {
+  .start-btn,
+  .auth-btn {
     font-size: 20px;
-    padding: 18px 0;
-    width: 90%;
-    max-width: 300px;
-    min-width: unset;
-    border-radius: 12px;
-    box-shadow: 0 5px 12px rgba(0, 188, 212, 0.5);
+    padding: 18px;
   }
 }
+
